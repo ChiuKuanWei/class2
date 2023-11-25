@@ -31,19 +31,20 @@ ua = UserAgent()
 user_agent = ua.random
 my_head = {'user-agent': user_agent}
 
-#page_url = f'https://service.taipower.com.tw/data/opendata/apply/file/d010004/本公司土地出租作電動機車電池交換站明細表(新).csv'
 page_url = f'https://data.ntpc.gov.tw/api/datasets/010e5b15-3823-4b20-b401-b1cf000550c5/csv/file'
+#page_url = f'https://data.ntpc.gov.tw/api/datasets/010e5b15-3823-4b20-b401-b1cf000550c5/csv/file'
 
 page_response = requests.get(page_url, headers= my_head)
-page_content = page_response.content.decode(encoding='utf-8-sig')
+#page_content = page_response.content.decode(encoding='utf-8-sig')
 #print(page_response.text)
-file = io.StringIO(page_content)
+file = io.StringIO(page_response.text)
 csv_reader = csv.reader(file)
 csv_list = list(csv_reader)
 # for item in csv_list:
 #     print(item)
 
-df = pd.DataFrame(csv_list)
+df = pd.DataFrame(csv_list[1:],columns=csv_list[0])
+df.to_csv("C://python-training//class2//106年度人口密度.csv")
 print(df)
 
 

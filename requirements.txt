@@ -1,0 +1,7 @@
+pyInputPlus
+requests
+pandas
+fake-useragent
+openpyxl
+sqlalchemy
+psycopg2
