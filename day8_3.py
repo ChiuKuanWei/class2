@@ -5,7 +5,7 @@ frame = pd.DataFrame(np.random.randn(4,3),
              columns=['d','f','e'],
              index=['台北','台中','台南','高雄']
             )
-print(np.absolute(frame))
+# print(np.absolute(frame))
 
 #使用for in 讀取DataFrame
 for column in frame:
